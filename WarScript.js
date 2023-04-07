@@ -200,184 +200,31 @@ var enemy = {
 	},
 };
 
-//assigns each card a easily interpretable string value
-function cardNum(num){
-	var card = "";
-	switch(num){
-		case 1: card = "AS"; break;
-		case 2: card = "2S"; break;
-		case 3: card = "3S"; break;
-		case 4: card = "4S"; break;
-		case 5: card = "5S"; break;
-		case 6: card = "6S"; break;
-		case 7: card = "7S"; break;
-		case 8: card = "8S"; break;
-		case 9: card = "9S"; break;
-		case 10: card = "10S"; break;
-		case 11: card = "JS"; break;
-		case 12: card = "QS"; break;
-		case 13: card = "KS"; break;
-		case 14: card = "AC"; break;
-		case 15: card = "2C"; break;
-		case 16: card = "3C"; break;
-		case 17: card = "4C"; break;
-		case 18: card = "5C"; break;
-		case 19: card = "6C"; break;
-		case 20: card = "7C"; break;
-		case 21: card = "8C"; break;
-		case 22: card = "9C"; break;
-		case 23: card = "10C"; break;
-		case 24: card = "JC"; break;
-		case 25: card = "QC"; break;
-		case 26: card = "KC"; break;
-		case 27: card = "AD"; break;
-		case 28: card = "2D"; break;
-		case 29: card = "3D"; break;
-		case 30: card = "4D"; break;
-		case 31: card = "5D"; break;
-		case 32: card = "6D"; break;
-		case 33: card = "7D"; break;
-		case 34: card = "8D"; break;
-		case 35: card = "9D"; break;
-		case 36: card = "10D"; break;
-		case 37: card = "JD"; break;
-		case 38: card = "QD"; break;
-		case 39: card = "KD"; break;
-		case 40: card = "AH"; break;
-		case 41: card = "2H"; break;
-		case 42: card = "3H"; break;
-		case 43: card = "4H"; break;
-		case 44: card = "5H"; break;
-		case 45: card = "6H"; break;
-		case 46: card = "7H"; break;
-		case 47: card = "8H"; break;
-		case 48: card = "9H"; break;
-		case 49: card = "10H"; break;
-		case 50: card = "JH"; break;
-		case 51: card = "QH"; break;
-		case 52: card = "KH"; break;
-	}
-	return card;
-}
-
 //loads card images from html file (https://opengameart.org/content/playing-cards-vector-png)
 function cardImage(card){
-	var img;
-	switch(card){
-		case "AS": img = document.getElementById("As"); break;
-		case "2S": img = document.getElementById("2s"); break;
-		case "3S": img = document.getElementById("3s"); break;
-		case "4S": img = document.getElementById("4s"); break;
-		case "5S": img = document.getElementById("5s"); break;
-		case "6S": img = document.getElementById("6s"); break;
-		case "7S": img = document.getElementById("7s"); break;
-		case "8S": img = document.getElementById("8s"); break;
-		case "9S": img = document.getElementById("9s"); break;
-		case "10S": img = document.getElementById("10s"); break;
-		case "JS": img = document.getElementById("Js"); break;
-		case "QS": img = document.getElementById("Qs"); break;
-		case "KS": img = document.getElementById("Ks"); break;
-		case "AC": img = document.getElementById("Ac"); break;
-		case "2C": img = document.getElementById("2c"); break;
-		case "3C": img = document.getElementById("3c"); break;
-		case "4C": img = document.getElementById("4c"); break;
-		case "5C": img = document.getElementById("5c"); break;
-		case "6C": img = document.getElementById("6c"); break;
-		case "7C": img = document.getElementById("7c"); break;
-		case "8C": img = document.getElementById("8c"); break;
-		case "9C": img = document.getElementById("9c"); break;
-		case "10C": img = document.getElementById("10c"); break;
-		case "JC": img = document.getElementById("Jc"); break;
-		case "QC": img = document.getElementById("Qc"); break;
-		case "KC": img = document.getElementById("Kc"); break;
-		case "AD": img = document.getElementById("Ad"); break;
-		case "2D": img = document.getElementById("2d"); break;
-		case "3D": img = document.getElementById("3d"); break;
-		case "4D": img = document.getElementById("4d"); break;
-		case "5D": img = document.getElementById("5d"); break;
-		case "6D": img = document.getElementById("6d"); break;
-		case "7D": img = document.getElementById("7d"); break;
-		case "8D": img = document.getElementById("8d"); break;
-		case "9D": img = document.getElementById("9d"); break;
-		case "10D": img = document.getElementById("10d"); break;
-		case "JD": img = document.getElementById("Jd"); break;
-		case "QD": img = document.getElementById("Qd"); break;
-		case "KD": img = document.getElementById("Kd"); break;
-		case "AH": img = document.getElementById("Ah"); break;
-		case "2H": img = document.getElementById("2h"); break;
-		case "3H": img = document.getElementById("3h"); break;
-		case "4H": img = document.getElementById("4h"); break;
-		case "5H": img = document.getElementById("5h"); break;
-		case "6H": img = document.getElementById("6h"); break;
-		case "7H": img = document.getElementById("7h"); break;
-		case "8H": img = document.getElementById("8h"); break;
-		case "9H": img = document.getElementById("9h"); break;
-		case "10H": img = document.getElementById("10h"); break;
-		case "JH": img = document.getElementById("Jh"); break;
-		case "QH": img = document.getElementById("Qh"); break;
-		case "KH": img = document.getElementById("Kh"); break;
-	}
-	return img;
+	var toHtml = card.substring(0, 1);
+	if(toHtml == "1")
+		toHtml += "0";
+	toHtml += card.substring(card.length-1).toLowerCase();
+	return document.getElementById(toHtml);
 }
 
 //converts card ids to human language
 function humanLanguage(card){
-	var img = "0 of Errors"
-	switch(card){
-		case "AS": img = "Ace of Spades"; break;
-		case "2S": img = "2 of Spades"; break;
-		case "3S": img = "3 of Spades"; break;
-		case "4S": img = "4 of Spades"; break;
-		case "5S": img = "5 of Spades"; break;
-		case "6S": img = "6 of Spades"; break;
-		case "7S": img = "7 of Spades"; break;
-		case "8S": img = "8 of Spades"; break;
-		case "9S": img = "9 of Spades"; break;
-		case "10S": img = "10 of Spades"; break;
-		case "JS": img = "Jack of Spades"; break;
-		case "QS": img = "Queen of Spades"; break;
-		case "KS": img = "King of Spades"; break;
-		case "AC": img = "Ace of Clubs"; break;
-		case "2C": img = "2 of Clubs"; break;
-		case "3C": img = "3 of Clubs"; break;
-		case "4C": img = "4 of Clubs"; break;
-		case "5C": img = "5 of Clubs"; break;
-		case "6C": img = "6 of Clubs"; break;
-		case "7C": img = "7 of Clubs"; break;
-		case "8C": img = "8 of Clubs"; break;
-		case "9C": img = "9 of Clubs"; break;
-		case "10C": img = "10 of Clubs"; break;
-		case "JC": img = "Jack of Clubs"; break;
-		case "QC": img = "Queen of Clubs"; break;
-		case "KC": img = "King of Clubs"; break;
-		case "AD": img = "Ace of Diamonds"; break;
-		case "2D": img = "2 of Diamonds"; break;
-		case "3D": img = "3 of Diamonds"; break;
-		case "4D": img = "4 of Diamonds"; break;
-		case "5D": img = "5 of Diamonds"; break;
-		case "6D": img = "6 of Diamonds"; break;
-		case "7D": img = "7 of Diamonds"; break;
-		case "8D": img = "8 of Diamonds"; break;
-		case "9D": img = "9 of Diamonds"; break;
-		case "10D": img = "10 of Diamonds"; break;
-		case "JD": img = "Jack of Diamonds"; break;
-		case "QD": img = "Queen of Diamonds"; break;
-		case "KD": img = "King of Diamonds"; break;
-		case "AH": img = "Ace of Hearts"; break;
-		case "2H": img = "2 of Hearts"; break;
-		case "3H": img = "3 of Hearts"; break;
-		case "4H": img = "4 of Hearts"; break;
-		case "5H": img = "5 of Hearts"; break;
-		case "6H": img = "6 of Hearts"; break;
-		case "7H": img = "7 of Hearts"; break;
-		case "8H": img = "8 of Hearts"; break;
-		case "9H": img = "9 of Hearts"; break;
-		case "10H": img = "10 of Hearts"; break;
-		case "JH": img = "Jack of Hearts"; break;
-		case "QH": img = "Queen of Hearts"; break;
-		case "KH": img = "King of Hearts"; break;
+	var text = "0 of Errors"
+	if(card.length < 2 || card.length > 3)
+		return text;
+	text = card.substring(0, 1);
+	if(text == "1")
+		text += "0"
+	text += " of "
+	switch(card.substring(card.length-1)){
+		case "S": text += "Spades"; break;
+		case "C": text += "Clubs"; break;
+		case "D": text += "Diamonds"; break;
+		case "H": text += "Hearts"; break;
 	}
-	return img;
+	return text;
 }
 
 //gives each card a numerical strength value
