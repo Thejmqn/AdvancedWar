@@ -1,0 +1,40 @@
+canvas {
+    border:1px solid #d3d3d3;
+    background-image: url("background.png");
+	vertical-align:middle;
+}
+
+#wrapper {
+    position:relative;
+    display:inline-block;
+}
+
+.childs {
+    position:absolute;
+	top:50%; /* element top side at 50% of container top side */
+    left:50%; /* element left side at 50% of container left side */
+    transform:translate(-50%,-50%); /* translate element of half itself size to the left and to the top */
+}
+
+#numCards {
+	top:60%;
+}
+#stupid {
+	top:55%;
+}
+
+button {
+	float: left;
+	color: Indigo;
+	background-color: ForestGreen;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	width: 17%;
+	font-weight: bold;
+}
+
+audio {
+	display: none;
+}

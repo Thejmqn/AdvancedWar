@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Intelligent War</title>
+  <link rel="stylesheet" href="card.css">
+</head>
+<body>
+
+<div id="cards">
+	<img id="2s" style="display:none;" src="cards/2_of_spades.png">
+	<img id="3s" style="display:none;" src="cards/3_of_spades.png">
+	<img id="4s" style="display:none;" src="cards/4_of_spades.png">
+	<img id="5s" style="display:none;" src="cards/5_of_spades.png">
+	<img id="6s" style="display:none;" src="cards/6_of_spades.png">
+	<img id="7s" style="display:none;" src="cards/7_of_spades.png">
+	<img id="8s" style="display:none;" src="cards/8_of_spades.png">
+	<img id="9s" style="display:none;" src="cards/9_of_spades.png">
+	<img id="10s" style="display:none;" src="cards/10_of_spades.png">
+	<img id="Js" style="display:none;" src="cards/jack_of_spades2.png">
+	<img id="Qs" style="display:none;" src="cards/queen_of_spades2.png">
+	<img id="Ks" style="display:none;" src="cards/king_of_spades2.png">
+	<img id="As" style="display:none;" src="cards/ace_of_spades2.png">
+	<img id="2d" style="display:none;" src="cards/2_of_diamonds.png">
+	<img id="3d" style="display:none;" src="cards/3_of_diamonds.png">
+	<img id="4d" style="display:none;" src="cards/4_of_diamonds.png">
+	<img id="5d" style="display:none;" src="cards/5_of_diamonds.png">
+	<img id="6d" style="display:none;" src="cards/6_of_diamonds.png">
+	<img id="7d" style="display:none;" src="cards/7_of_diamonds.png">
+	<img id="8d" style="display:none;" src="cards/8_of_diamonds.png">
+	<img id="9d" style="display:none;" src="cards/9_of_diamonds.png">
+	<img id="10d" style="display:none;" src="cards/10_of_diamonds.png">
+	<img id="Jd" style="display:none;" src="cards/jack_of_diamonds2.png">
+	<img id="Qd" style="display:none;" src="cards/queen_of_diamonds2.png">
+	<img id="Kd" style="display:none;" src="cards/king_of_diamonds2.png">
+	<img id="Ad" style="display:none;" src="cards/ace_of_diamonds.png">
+	<img id="2c" style="display:none;" src="cards/2_of_clubs.png">
+	<img id="3c" style="display:none;" src="cards/3_of_clubs.png">
+	<img id="4c" style="display:none;" src="cards/4_of_clubs.png">
+	<img id="5c" style="display:none;" src="cards/5_of_clubs.png">
+	<img id="6c" style="display:none;" src="cards/6_of_clubs.png">
+	<img id="7c" style="display:none;" src="cards/7_of_clubs.png">
+	<img id="8c" style="display:none;" src="cards/8_of_clubs.png">
+	<img id="9c" style="display:none;" src="cards/9_of_clubs.png">
+	<img id="10c" style="display:none;" src="cards/10_of_clubs.png">
+	<img id="Jc" style="display:none;" src="cards/jack_of_clubs2.png">
+	<img id="Qc" style="display:none;" src="cards/queen_of_clubs2.png">
+	<img id="Kc" style="display:none;" src="cards/king_of_clubs2.png">
+	<img id="Ac" style="display:none;" src="cards/ace_of_clubs.png">
+	<img id="2h" style="display:none;" src="cards/2_of_hearts.png">
+	<img id="3h" style="display:none;" src="cards/3_of_hearts.png">
+	<img id="4h" style="display:none;" src="cards/4_of_hearts.png">
+	<img id="5h" style="display:none;" src="cards/5_of_hearts.png">
+	<img id="6h" style="display:none;" src="cards/6_of_hearts.png">
+	<img id="7h" style="display:none;" src="cards/7_of_hearts.png">
+	<img id="8h" style="display:none;" src="cards/8_of_hearts.png">
+	<img id="9h" style="display:none;" src="cards/9_of_hearts.png">
+	<img id="10h" style="display:none;" src="cards/10_of_hearts.png">
+	<img id="Jh" style="display:none;" src="cards/jack_of_hearts2.png">
+	<img id="Qh" style="display:none;" src="cards/queen_of_hearts2.png">
+	<img id="Kh" style="display:none;" src="cards/king_of_hearts2.png">
+	<img id="Ah" style="display:none;" src="cards/ace_of_hearts.png">
+	<img id="Back" style="display:none;" src="cards/back.png">
+</div>
+
+<div id="wrapper">
+	<canvas id="canvas" width="1000" height="500"></canvas>
+	<button class="childs" id="refresh" onclick="refresh()">Refresh</button>
+	<button class="childs" id="start" onclick="start()">Start Game</button>
+	<form id="settings">
+		<label for="numCards" class="childs" id="stupid">Select number of cards (Between 2 and 10):</label>
+		<input type="number" class="childs" id="numCards" min="2" max="10">
+	</form>
+</div>
+
+<audio controls id="start1">
+	<source src="audio/cardTakeOutPackage1.wav" type="audio/wav">
+</audio>
+<audio controls id="start2">
+	<source src="audio/cardTakeOutPackage2.wav" type="audio/wav">
+</audio>
+<audio controls id="shuffle1">
+	<source src="audio/cardFan1.wav" type="audio/wav">
+</audio>
+<audio controls id="shuffle2">
+	<source src="audio/cardFan2.wav" type="audio/wav">
+</audio>
+<audio controls id="pick1">
+	<source src="audio/cardPlace1.wav" type="audio/wav">
+</audio>
+<audio controls id="pick2">
+	<source src="audio/cardPlace2.wav" type="audio/wav">
+</audio>
+<audio controls id="pick3">
+	<source src="audio/cardPlace3.wav" type="audio/wav">
+</audio>
+<audio controls id="pick4">
+	<source src="audio/cardPlace4.wav" type="audio/wav">
+</audio>
+
+<script type="text/javascript" src="PxLoader.js"></script>
+<script type="text/javascript" src="PxLoaderImage.js"></script> 
+<script src="WarScript.js"></script>
+</body>
+</html>
